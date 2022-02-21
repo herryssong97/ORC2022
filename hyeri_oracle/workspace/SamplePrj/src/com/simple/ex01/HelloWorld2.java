@@ -24,11 +24,6 @@ public class HelloWorld2 {
 		
 		//System.out.println(gender);
 		
-		
-		
-		
-		
-		
 		String city;
 		char city1;
 		
@@ -43,10 +38,6 @@ public class HelloWorld2 {
 		
 		weight = 53;
 		System.out.println(weight);
-		
-
-		// gender1 = 10 == 10;
-		// System.out.println("gender : " gender1);
 		
 		city = "서울시 관악구";
 		System.out.println(city);
