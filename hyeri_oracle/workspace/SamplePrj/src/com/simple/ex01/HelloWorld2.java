@@ -3,31 +3,36 @@ package com.simple.ex01;
 public class HelloWorld2 {
 
 	public static void main(String[] args) {
-		// µ¥ÀÌÅÍ ¼±¾ğ (µ¥ÀÌÅÍ ÁØºñ)
+		// ë°ì´í„° ì„ ì–¸ (ë°ì´í„° ì¤€ë¹„)
 		/*
-		 ÀÌ¸§, ³ªÀÌ, Å°, ¸ö¹«°Ô, ¼ºº° (³²M/¿©F), Áö¿ª(¼­¿ï)
-		 °³ÀÎÁ¤º¸¸¦ ÀÔ·ÂÇÏ¿© Ãâ·ÂÈ£¼¼¿ä.
+		 ì´ë¦„, ë‚˜ì´, í‚¤, ëª¸ë¬´ê²Œ, ì„±ë³„ (ë‚¨M/ì—¬F), ì§€ì—­(ì„œìš¸)
+		 ê°œì¸ì •ë³´ë¥¼ ì…ë ¥í•˜ì—¬ ì¶œë ¥í•˜ì„¸ìš”.
 		*/
 		String name;
 		int age, height, weight;
 		
-		boolean gender = false;
-		// System.out.println("¼ºº° : " + gender);
-		// char gender1 = '¿©'; // ³²ÀÚ´Â 0M ¿©ÀÚ´Â 1F
-		//char gender1 = '¿©';
-		if(true) {
-			System.out.println("¿©");
+		boolean gender = true;
+		// System.out.println("ì„±ë³„ : " + gender);
+		// char gender1 = 'ì—¬'; // ë‚¨ìëŠ” 0M ì—¬ìëŠ” 1F
+		// char gender1 = 'ì—¬';
+		if(gender) {
+			System.out.println("ì—¬");
 		}
-		if(false) {
-			System.out.println("³²");
+		else {
+			System.out.println("ë‚¨");
 		}
+		
+		//System.out.println(gender);
+		
+		
+		
 		
 		
 		
 		String city;
 		char city1;
 		
-		name = "¼ÛÇı¸®";
+		name = "ì†¡í˜œë¦¬";
 		System.out.println(name);
 		
 		age = 26;
@@ -43,7 +48,7 @@ public class HelloWorld2 {
 		// gender1 = 10 == 10;
 		// System.out.println("gender : " gender1);
 		
-		city = "¼­¿ï½Ã °ü¾Ç±¸";
+		city = "ì„œìš¸ì‹œ ê´€ì•…êµ¬";
 		System.out.println(city);
 		
 		
