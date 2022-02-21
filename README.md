@@ -6,6 +6,6 @@
 
 <br><br><br><br>
 
-이클립스에서
-sysout 치고 ctrl+spacebar 하면 자동완성
+이클립스에서<br>
+sysout 치고 ctrl+spacebar 하면 자동완성<br>
 shift + ctrl + f 자동 줄바꿈
