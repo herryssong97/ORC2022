@@ -22,7 +22,7 @@ public class LoopEx05 {
 			// 성적점수 1~100을 생성한다.
 			// 난수 범위 제어
 			// rand = (int) (Math.random() * (MAX-MIN+1))+MIN;
-			rand = (int) (Math.random() *(100-50+1)) + 50; // 0 포함하여 131보다 작은 수가 랜덤으로 보이게 (0~100)
+			rand = (int) (Math.random() *(100-50+1)) + 50; // 0 포함하여 작은 수가 랜덤으로 보이게 (0~100)
 			
 			if (rand >= 100)
 				rand = 95;
