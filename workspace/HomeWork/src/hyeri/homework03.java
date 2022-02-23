@@ -7,42 +7,53 @@ public class homework03 {
 	public static void main(String[] args) {
 
 		/*
-		 * 1. ¾Æ·¡¿Í °°Àº ¸ğ¾çÀÇ º°Ç¥¸¦ Ãâ·ÂÇÏ¼¼¿ä. (´Ü for, while¹® »ç¿ëÇÏ¿© Ãâ·Â)
+		 * 1. ì•„ë˜ì™€ ê°™ì€ ëª¨ì–‘ì˜ ë³„í‘œë¥¼ ì¶œë ¥í•˜ì„¸ìš”. (ë‹¨ for, whileë¬¸ ì‚¬ìš©í•˜ì—¬ ì¶œë ¥)
 		 *
-		 *	*
-		 *	**
-		 *	***
-		 *	****
-		 *  *****
+		 * * ** *** **** *****
 		 * 
 		 */
+
 		
-//		String[] star = {"*", "**", "***", "****", "*****"};
-//		
-//
-//		for (int i = 0; i < star.length; i++) {
-//			System.out.println(star[i]);
-//		}
-//
-//		for (int i = 0; i < name.length; i++) {
-//			System.out.println("¹è¿­ °ª" + name[i]);
-//		}
-//		
-		int cnt = 1;
+		/*** ë°©ë²• A ***/
 		
+		String[] star = { "*", "**", "***", "****", "*****" };
+
+		for (int i = 0; i < star.length; i++) {
+			System.out.println(star[i]);
+		}
+
+		System.out.println();
+
 		
-		for (int i =0; i < 5; i++) {
-			for(int j = 0; j < 1; j++) {
-				cnt ++;
-				System.out.println("* ");
+		/*** ë°©ë²• B ***/
+		
+		String[][] starB = { { "*" }, { "*","*" }, { "*","*","*" }, { "*","*","*","*" },
+				{ "*","*","*","*","*" } };
+
+		for (int i = 0; i < starB.length; i++) {
+			for (int j = 0; j < starB[i].length; j++) {
+				System.out.print(starB[i][j]);
+			}
+			System.out.println();
+
 		}
 		System.out.println();
 		
 		
+		/*** ë°©ë²• C ***/
 		
-		}
-		
+		int cnt = 1;
 
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < i; j++) {
+				cnt++;
+				System.out.print("*");
+			}
+			System.out.println();
+			 //System.out.println();
+		}
+	
+		
 	}
 
 }
