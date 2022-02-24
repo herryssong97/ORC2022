@@ -5,31 +5,31 @@ public class LoopEx01 {
 	public static void main(String[] args) {
 		
 		/*
-		 * /////// while ¹®
+		 * /////// while ë¬¸
 		 * 
 		 * int a = 0;
 		 * 
-		 * while(a<=10){ System.out.println("a°ª : "+a); a++; }
+		 * while(a<=10){ System.out.println("aê°’ : "+a); a++; }
 		 * 
 		 */
 
 		/*
-		 *  //////// do while ¹®
+		 *  //////// do while ë¬¸
 		 * 
 		 * int a = 0;
 		 * 
-		 * do { System.out.println("a°ª : " + a); a++; } while (a <= 10);
+		 * do { System.out.println("aê°’ : " + a); a++; } while (a <= 10);
 		 * 
 		 */
 
 		int i2=0;
 
 		for (int i = 0; i < 10; i++) {
-			System.out.println("a°ª : " + i);
+			System.out.println("aê°’ : " + i);
 			i2 = i;
 		}
 
-		System.out.println("ÃÖÁ¾ a°ª : " + i2);
+		System.out.println("ìµœì¢… aê°’ : " + i2);
 
 	}
 
