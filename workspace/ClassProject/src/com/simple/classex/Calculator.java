@@ -2,61 +2,69 @@ package com.simple.classex;
 
 public class Calculator {
 
-	// ¸â¹ö (¼Ó¼º, µ¥ÀÌÅÍ)
+	// ë©¤ë²„ (ì†ì„±, ë°ì´í„°)
 	int num1, num2, result = 0;
 	double mok;
 
 	public void showResult(String msg) {
 		
-		if (msg.equals("¸ò : "))
+		if (msg.equals("ëª« : "))
 			System.out.println(msg + mok);
 		else
 			System.out.println(msg + result);
 	}
 
-	// µ¡¼À ¸Ş¼­µå (±â´É)
+	// ë§ì…ˆ ë©”ì„œë“œ (ê¸°ëŠ¥)
 	public int add(int num1, int num2) {
 		result = num1 + num2;
-		// System.out.println("ÇÕ : " + result);
-		showResult("ÇÕ : ");
+		// System.out.println("í•© : " + result);
+		showResult("í•© : ");
+		return result;
+	}
+	
+	// ë§ì…ˆ2
+	public double add(int num1, double num2) {
+		double result = num1 + num2;
+		// System.out.println("í•© : " + result);
+		showResult("í•© : ");
 		return result;
 	}
 
-	// »¬¼À ¸Ş¼­µå (±â´É)
+	// ëº„ì…ˆ ë©”ì„œë“œ (ê¸°ëŠ¥)
 	public int sub(int num1, int num2) {
 		result = num1 - num2;
-		// System.out.println("Â÷ : " + result);
-		showResult("Â÷ : ");
+		// System.out.println("ì°¨ : " + result);
+		showResult("ì°¨ : ");
 		return result;
 	}
 
-	// °ö¼À ¸Ş¼­µå (±â´É)
+	// ê³±ì…ˆ ë©”ì„œë“œ (ê¸°ëŠ¥)
 	public int mul(int num1, int num2) {
 		result = num1 * num2;
-		// System.out.println("°ö : " + result);
-		showResult("°ö : ");
+		// System.out.println("ê³± : " + result);
+		showResult("ê³± : ");
 		return result;
 	}
 
-	// ³ª´°¼À ¸Ş¼­µå (±â´É) ³ª´«¼ÀÀº ¼Ò¼öÁ¡±îÁö ³ª¿Í¾ß ÇÏ¹Ç·Î ´õºí!
+	// ë‚˜ëˆ—ì…ˆ ë©”ì„œë“œ (ê¸°ëŠ¥) ë‚˜ëˆˆì…ˆì€ ì†Œìˆ˜ì ê¹Œì§€ ë‚˜ì™€ì•¼ í•˜ë¯€ë¡œ ë”ë¸”!
 	public double div(int num1, int num2) {
 		mok = 0.0;
 
-		if (num2 != 0) // ²À ÇØÁà¾ßÇÔ
-			mok = (double)num1 / num2; // °ıÈ£ ¼Ó ´õºíÀº Çüº¯È¯
+		if (num2 != 0) // ê¼­ í•´ì¤˜ì•¼í•¨
+			mok = (double)num1 / num2; // ê´„í˜¸ ì† ë”ë¸”ì€ í˜•ë³€í™˜
 		else
-			System.out.println("0À¸·Î ³ª´°¼À ºÒ°¡");
+			System.out.println("0ìœ¼ë¡œ ë‚˜ëˆ—ì…ˆ ë¶ˆê°€");
 
-		showResult("¸ò : ");
-		// System.out.println("¸ò : " + mok);
+		showResult("ëª« : ");
+		// System.out.println("ëª« : " + mok);
 		return mok;
 	}
 
-	// Á¦°ö ¸Ş¼­µå (±â´É)
+	// ì œê³± ë©”ì„œë“œ (ê¸°ëŠ¥)
 	public int square(int num1) {
 		result = num1 * num1;
-		// System.out.println("Á¦°ö : " + num1);
-		showResult("Á¦°ö : ");
+		// System.out.println("ì œê³± : " + num1);
+		showResult("ì œê³± : ");
 		return result;
 	}
 
