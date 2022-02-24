@@ -4,28 +4,29 @@ public class CalculatorTest {
 
 	public static void main(String[] args) {
 
-		// °´Ã¼»ı¼º (°è»ê±â)
+		// ê°ì²´ìƒì„± (ê³„ì‚°ê¸°)
 		Calculator calc1 = new Calculator();
 
-		// °´Ã¼ »ç¿ë (µ¡¼À)
-		int sum = calc1.add(5, 3);
-		// System.out.println("ÇÕ :" + sum);
+		// ê°ì²´ ì‚¬ìš© (ë§ì…ˆ)
+		//int sum = calc1.add(5, 3);
+		double sum = calc1.add(5, 3);
+		// System.out.println("í•© :" + sum);
 
-		// °´Ã¼ »ç¿ë (»¬¼À)
+		// ê°ì²´ ì‚¬ìš© (ëº„ì…ˆ)
 		sum = calc1.sub(10, 5);
-		// System.out.println("Â÷ :" + sum);
+		// System.out.println("ì°¨ :" + sum);
 
-		// °´Ã¼ »ç¿ë (°ö¼À)
+		// ê°ì²´ ì‚¬ìš© (ê³±ì…ˆ)
 		sum = calc1.mul(7, 3);
-		// System.out.println("°ö :" + sum);
+		// System.out.println("ê³± :" + sum);
 
-		// °´Ã¼ »ç¿ë (³ª´°¼À)
+		// ê°ì²´ ì‚¬ìš© (ë‚˜ëˆ—ì…ˆ)
 		double mok = calc1.div(33, 6);
-		// System.out.println("¸ò :" + mok);
+		// System.out.println("ëª« :" + mok);
 		
-		// °´Ã¼ »ç¿ë (Á¦°ö)
+		// ê°ì²´ ì‚¬ìš© (ì œê³±)
 		sum = calc1.square(2);
-		// System.out.println("Á¦°ö :" + sum);
+		// System.out.println("ì œê³± :" + sum);
 
 	}
 }
