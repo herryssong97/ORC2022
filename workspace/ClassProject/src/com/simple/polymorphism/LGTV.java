@@ -1,21 +1,21 @@
 package com.simple.polymorphism;
 
 public class LGTV implements TV{
-	
+
 	public void powerOn() {
-		System.out.println("LGTV Àü¿ø ÄÒ´Ù..");
+		System.out.println("LGTV ì „ì› ì¼ ë‹¤ ..");
 	}
 	
 	public void powerOff() {
-		System.out.println("LGTV Àü¿ø ²ö´Ù..");
-	}	
-	
-	public void volumeUp() {
-		System.out.println("LGTV ¼Ò¸® ¿Ã¸°´Ù..");
+		System.out.println("LGTV ì „ì› ëˆë‹¤ ..");
 	}
-	
+
+	public void volumeUp() {
+		System.out.println("LGTV ì†Œë¦¬ ì˜¬ë¦°ë‹¤ ..");
+	}
+
 	public void volumeDown() {
-		System.out.println("LGTV ¼Ò¸® ³»¸°´Ù..");
-	}	
+		System.out.println("LGTV ì†Œë¦¬ ë‚´ë¦°ë‹¤ ..");
+	}
 
 }
