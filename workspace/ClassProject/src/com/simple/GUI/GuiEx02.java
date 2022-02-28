@@ -12,7 +12,7 @@ public class GuiEx02 {
 
 	public static void main(String[] args) {
 		// 메소드 안의 지역개체 확장하려면 한계가 있음
-		JFrame f = new JFrame("오 개신기해 ㅋㅋㅋㅋ");
+		JFrame f = new JFrame("오 신기해 ㅋㅋㅋㅋ");
 		FlowLayout lay1 = new FlowLayout();
 
 		f.setLayout(lay1); // 사용자 레이아웃

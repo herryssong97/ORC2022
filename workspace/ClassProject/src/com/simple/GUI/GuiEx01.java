@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 public class GuiEx01 {
 
 	public static void main(String[] args) {
-		JFrame f = new JFrame("오 개신기해 ㅋㅋㅋㅋ");
+		JFrame f = new JFrame("오 신기해 ㅋㅋㅋㅋ");
 		FlowLayout lay1 = new FlowLayout();
 
 		f.setLayout(lay1); // 사용자 레이아웃

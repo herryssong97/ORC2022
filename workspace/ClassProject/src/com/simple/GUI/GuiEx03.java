@@ -26,7 +26,7 @@ class Calculator extends JFrame {
 
 	public Calculator() {
 		//
-		this.setTitle("오 개신기해 ㅋㅋㅋㅋ");
+		this.setTitle("오 신기해 ㅋㅋㅋㅋ");
 		FlowLayout lay1 = new FlowLayout();
 
 		this.setLayout(lay1); // 사용자 레이아웃
