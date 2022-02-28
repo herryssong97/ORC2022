@@ -7,103 +7,60 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
-// º°µµÀÇ Å¬·¡½º ¸¸µé¾îÁÖ±â
+// ë³„ë„ì˜ í´ë˜ìŠ¤ ë§Œë“¤ì–´ì£¼ê¸°
 class Calculator2 extends JFrame implements ActionListener{
-	// =JFrame f = new JFrame("¿À °³½Å±âÇØ ¤»¤»¤»¤»");
-	// Calculator ÀÌ¸§ÀÇ À©µµ¿ì°¡ ÇÏ³ª ¸¸µé¾î Áø °Í
 
-	// ÄÄÆ÷³ÍÆ® »ı¼º
-	// 2°³ÀÇ °ªÀ» ÀÔ·Â ¹Ş´Â ÄÄÆ÷³ÍÆ®
+	// ì»´í¬ë„ŒíŠ¸ ìƒì„±
+	// 2ê°œì˜ ê°’ì„ ì…ë ¥ ë°›ëŠ” ì»´í¬ë„ŒíŠ¸
 	JTextField text1 = new JTextField(10);
+	
 	JTextField text2 = new JTextField(10);
-	JTextField sum = new JTextField(10);
+	JTextField text3 = new JTextField(10);
+	JTextField text4 = new JTextField(10);
+	JTextField text5 = new JTextField(10);
+	JTextField text6 = new JTextField(10);
+//	JTextField text2 = new JTextField(10);
+//	JTextField sum = new JTextField(10);
 
-	JButton btnAdd = new JButton("+");
-	JButton btnSub = new JButton("-");
-	JButton btnMul = new JButton("*");
-	JButton btnDiv = new JButton("/");
-
+	JButton btn = new JButton("ê³„ì‚°");
+	
 	public Calculator2() {
-		//
-		this.setTitle("¿À ½Å±âÇØ ¤»¤»¤»¤»");
+		
+		this.setTitle("ê¸‰ì—¬ ìˆ˜ë ¹ì•¡");
 		FlowLayout lay1 = new FlowLayout();
 
-		this.setLayout(lay1); // »ç¿ëÀÚ ·¹ÀÌ¾Æ¿ô
+		this.setLayout(lay1); // ì‚¬ìš©ì ë ˆì´ì•„ì›ƒ
+		
+		JTextField text = new JTextField("", SwingConstants.CENTER);
+		
 
 		// text1.setText();
 		// text2.setText();
 
-		// ÀÌº¥Æ® Ã³¸®
-		// ÀÌº¥Æ® °¨Áö -> ÀÌº¥Æ® ¸®½º³Ê µî·Ï
-		btnAdd.addActionListener(new ActionListener() {
+		// ì´ë²¤íŠ¸ ì²˜ë¦¬
+		// ì´ë²¤íŠ¸ ê°ì§€ -> ì´ë²¤íŠ¸ ë¦¬ìŠ¤ë„ˆ ë“±ë¡
+		
+		btn.addActionListener(this);
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//
-				String num1 = text1.getText();
-				String num2 = text2.getText();
-
-				int total = Integer.parseInt(num1) + Integer.parseInt(num2);
-
-				sum.setText(String.valueOf(total));
-
-			}
-		});
-
-		btnSub.addActionListener(this);
-
-		btnMul.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				String num1 = text1.getText();
-				String num2 = text2.getText();
-
-				int total = Integer.parseInt(num1) * Integer.parseInt(num2);
-
-				sum.setText(String.valueOf(total));
-
-			}
-		});
-		btnDiv.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				double div = 0;
-				String num1_ = text1.getText();
-				String num2_ = text2.getText();
-				int num1 = Integer.parseInt(num1_);
-				int num2 = Integer.parseInt(num2_);
-
-				if (num2 > 0) {
-					div = (double) num1 / num2;
-					sum.setText(String.valueOf(div));
-				} else {
-					sum.setText("0À¸·Î ³ª´­ ¼ö ¾ø½À´Ï´Ù");
-				}
-
-				sum.setText(String.valueOf(div));
-
-			}
-		});
+		
+	
 
 		// System.out.println("=>" + total);
 
 		// btn3.setBounds(x, y, width, height);
 		// btn1.setBounds(130, 100, 100, 40);
 
-		// ÄÄÆ÷³ÍÆ®¸¦ ÄÁÅ×ÀÌ³Ê¿¡ »ğÀÔ
+		// ì»´í¬ë„ŒíŠ¸ë¥¼ ì»¨í…Œì´ë„ˆì— ì‚½ì…
 		this.add(text1);
 		this.add(text2);
-		this.add(btnAdd);
-		this.add(btnSub);
-		this.add(btnMul);
-		this.add(btnDiv);
-		this.add(sum);
-		this.setSize(500, 500);
+		this.add(text3);
+		this.add(text4);
+		this.add(text5);
+		this.add(text6);
+		this.add(btn);
+		this.setSize(150, 500);
 		this.setVisible(true);
 
 	}
