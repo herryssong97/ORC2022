@@ -17,27 +17,27 @@ public class homework04 extends JFrame implements ActionListener{
 	JButton btn1;
 	
 	public homework04() {
-		// À©µµ¿ì ±âº»±¸¼ºÀ» ¼³Á¤
+		// ìœˆë„ìš° ê¸°ë³¸êµ¬ì„±ì„ ì„¤ì •
 		
-		this.setTitle("BMIÁö¼ö ±¸ÇÏ±â");
+		this.setTitle("BMIì§€ìˆ˜ êµ¬í•˜ê¸°");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(300, 400);
 		setLayout(null);
-		// ÄÄÆ÷³ÍÆ® »ı¼º
-		tf1 = new JTextField("½ÅÀåÀÔ·Â", 10);
+		// ì»´í¬ë„ŒíŠ¸ ìƒì„±
+		tf1 = new JTextField("ì‹ ì¥ì…ë ¥", 10);
 		tf2 = new JTextField(10);
 		tf3 = new JTextField(10);
 		
-		lbl1 = new JLabel("½ÅÀå");
-		lbl2 = new JLabel("¸ö¹«°Ô");
-		lbl3 = new JLabel("BMI Áö¼ö ÆÇÁ¤");
+		lbl1 = new JLabel("ì‹ ì¥");
+		lbl2 = new JLabel("ëª¸ë¬´ê²Œ");
+		lbl3 = new JLabel("BMI ì§€ìˆ˜ íŒì •");
 		
-		btn1 = new JButton("°è»ê");
+		btn1 = new JButton("ê³„ì‚°");
 		
-		// ÀÌº¥Æ® ¸®½º³Ê µî·Ï
+		// ì´ë²¤íŠ¸ ë¦¬ìŠ¤ë„ˆ ë“±ë¡
 		btn1.addActionListener(this);
 		
-		lbl1.setBounds(10, 10, 100 ,30); // xÃà, yÃà, °¡·ÎÅ©±â, ³ôÀÌ
+		lbl1.setBounds(10, 10, 100 ,30); // xì¶•, yì¶•, ê°€ë¡œí¬ê¸°, ë†’ì´
 		tf1.setBounds(120, 10, 100, 30);
 		
 		lbl2.setBounds(10, 50, 100 ,30);
@@ -50,7 +50,7 @@ public class homework04 extends JFrame implements ActionListener{
 		
 		
 		
-		// ÄÁÅ×ÀÌ³Ê¿¡ µî·Ï
+		// ì»¨í…Œì´ë„ˆì— ë“±ë¡
 		this.add(btn1);
 		this.add(tf1);
 		this.add(tf2);
@@ -67,10 +67,10 @@ public class homework04 extends JFrame implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// 1. ½ÅÀå ÀÔ·Â
+		// 1. ì‹ ì¥ ì…ë ¥
 		String cm_ = tf1.getText();
 		int cm = Integer.parseInt(cm_);
-		// 2. kgÀÔ·Â
+		// 2. kgì…ë ¥
 		String kg_ = tf2.getText();
 		int kg = 0;
 		
@@ -78,26 +78,27 @@ public class homework04 extends JFrame implements ActionListener{
 		//int na = 0;
 		
 		
-		// ¸ö¹«°Ô ÀÔ·Â
-		// 18.5ÀÌÇÏ ÀúÃ¼Áß
+		// ëª¸ë¬´ê²Œ ì…ë ¥
+		// 18.5ì´í•˜ ì €ì²´ì¤‘
 		if(mok < 18.5) {
 			mok = kg/cm;
-			tf3.setText("ÀúÃ¼Áß");
+			
+			tf3.setText("ì €ì²´ì¤‘");
 		}
-		// 18.5~22.9 Á¤»ó
+		// 18.5~22.9 ì •ìƒ
 		if(mok >= 18.5 && mok <= 22.9 ) {
 			mok = kg/cm;
-			tf3.setText("Á¤»ó");
+			tf3.setText("ì •ìƒ");
 		}
-		// 23.0~24.9 °úÃ¼Áß
+		// 23.0~24.9 ê³¼ì²´ì¤‘
 		if(mok >= 23.0 && mok <= 24.9 ) {
 			mok = kg/cm;
-			tf3.setText("°úÃ¼Áß");
+			tf3.setText("ê³¼ì²´ì¤‘");
 		}
-		// 25.0 ÀÌ»ó ºñ¸¸
+		// 25.0 ì´ìƒ ë¹„ë§Œ
 		if(mok >= 25.0) {
 			mok = kg/cm;
-			tf3.setText("ºñ¸¸");
+			tf3.setText("ë¹„ë§Œ");
 		}
 		
 		
