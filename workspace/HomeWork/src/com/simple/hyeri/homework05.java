@@ -29,7 +29,7 @@ class BANK extends JFrame implements ActionListener {
 	String transferA;
 	JTextField transfer2; // 홍길순 이체금액
 	JTextArea msg1; // 홍길동 오류메시지
-	JTextArea msg2; // 홍길순 이체금액
+	JTextArea msg2; // 홍길순 오류메시지
 	int Transfer1;
 	int Transfer2;
 	private int Cash1;
@@ -145,11 +145,18 @@ class BANK extends JFrame implements ActionListener {
 
 		String cashB = "2000";
 		int Cash2 = Integer.parseInt(cashB);
+
 		if (s.equals("조회1")) {
 			cash1.setText(cashA);
+			if (number2 != null) {
+				msg1.setText("계좌번호를 입력해주세요.");
+			} // 길동이
 		}
 		if (s.equals("조회2")) {
 			cash2.setText(cashB);
+			if (number4 != null) {
+				msg2.setText("계좌번호를 입력해주세요.");
+			} // 길순이
 		}
 		////////////// 조회버튼 눌렀을때 끝 //////////////////////////////////
 
@@ -168,14 +175,11 @@ class BANK extends JFrame implements ActionListener {
 				System.out.println("이체금액 : " + Transfer1);
 				msg1.setText("잔액이 부족합니다.");
 			}
-		}
-
-		else if (number2 != null) {
-			msg1.setText("계좌번호를 입력해주세요.");
 		} // 길동이 이체 끝
 
 		String Transfer2_ = transfer2.getText();
 		int Transfer2 = Integer.parseInt(Transfer2_);
+
 		// 길순이가 이체 버튼 눌렀을 때
 		if (s.equals("이체2")) {
 			// 이체금액transfer1이 잔액cash1보다 낮을경우 이체함 이체금액 <= 잔액
@@ -189,7 +193,6 @@ class BANK extends JFrame implements ActionListener {
 		} // 길순이 이체 끝
 
 		////////////// 이체 버튼 눌렀을때 끝 //////////////////////////////////
-
 	}
 
 }
