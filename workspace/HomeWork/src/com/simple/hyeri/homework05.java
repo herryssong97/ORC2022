@@ -1,4 +1,4 @@
-package com.simple.hyeri;
+package hyeri;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -17,7 +17,7 @@ class BANK extends JFrame implements ActionListener {
 
 	JTextField number1; // 홍길동 계좌번호
 	JTextField number2; // 홍길동 이체계좌입력
-	String Number2;
+	int Number2;
 	JTextField number3; // 홍길순 계좌번호
 	JTextField number4; // 홍길순 이체계좌입력
 	int Number4;
@@ -26,7 +26,6 @@ class BANK extends JFrame implements ActionListener {
 	JTextField cash2; // 홍길순 잔액
 	String cashB;
 	JTextField transfer1; // 홍길동 이체금액
-	String transferA;
 	JTextField transfer2; // 홍길순 이체금액
 	JTextArea msg1; // 홍길동 오류메시지
 	JTextArea msg2; // 홍길순 오류메시지
@@ -39,7 +38,7 @@ class BANK extends JFrame implements ActionListener {
 	String num2 = "345-567";
 
 	public BANK() {
-		//
+//
 		this.setTitle("혜리 은행");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(350, 500);
@@ -60,7 +59,7 @@ class BANK extends JFrame implements ActionListener {
 		p11.add(cash1);
 
 		p11.add(new Label("이체계좌 : "));
-		number2 = new JTextField(Number2, 5);
+		number2 = new JTextField(Integer.toString(Number2), 5);
 		p11.add(number2);
 
 		p11.add(new Label("이체금액 : "));
@@ -85,7 +84,7 @@ class BANK extends JFrame implements ActionListener {
 
 		p1.add(p12, BorderLayout.SOUTH);
 
-		////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
 
 		JPanel p2 = new JPanel(); // 최초의 패널
 		p2.setLayout(new BorderLayout());
@@ -102,7 +101,7 @@ class BANK extends JFrame implements ActionListener {
 		p21.add(cash2);
 
 		p21.add(new Label("이체계좌 : "));
-		number4 = new JTextField(5);
+		number4 = new JTextField(Integer.toString(Number4), 5);
 		p21.add(number4);
 
 		p21.add(new Label("이체금액 : "));
@@ -127,7 +126,7 @@ class BANK extends JFrame implements ActionListener {
 
 		p2.add(p22, BorderLayout.SOUTH);
 
-		////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
 
 		add(p1);
 		add(p2);
@@ -136,10 +135,10 @@ class BANK extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//
+//
 		String s = e.getActionCommand();
 
-		////////////// 조회 버튼 //////////////////////////////////
+////////////// 조회 버튼 //////////////////////////////////
 		String cashA = "1000";
 		int Cash1 = Integer.parseInt(cashA);
 
@@ -149,52 +148,91 @@ class BANK extends JFrame implements ActionListener {
 		if (s.equals("조회1")) {
 			cash1.setText(cashA);
 			if (number2 != null) {
-				msg1.setText("계좌번호를 입력해주세요.");
+				msg1.setText("잔액이 조회되었습니다.");
 			} // 길동이
 		}
 		if (s.equals("조회2")) {
 			cash2.setText(cashB);
 			if (number4 != null) {
-				msg2.setText("계좌번호를 입력해주세요.");
+				msg2.setText("잔액이 조회되었습니다.");
 			} // 길순이
 		}
-		////////////// 조회버튼 눌렀을때 끝 //////////////////////////////////
+////////////// 조회버튼 눌렀을때 끝 //////////////////////////////////
 
-		////////////// 이체 버튼 //////////////////////////////////
+////////////// 이체 버튼 //////////////////////////////////
 
-		String Transfer1_ = transfer1.getText();
-		int Transfer1 = Integer.parseInt(Transfer1_);
-
-		// 길동이가 이체 버튼 눌렀을 때
+// 길동이가 이체 버튼 눌렀을 때
 		if (s.equals("이체1")) {
-			// 이체금액transfer1이 잔액cash1보다 낮을경우 이체함 이체금액 <= 잔액
-			if (Transfer1 <= Cash1) {
-				System.out.println("이체금액 : " + Transfer1);
-				msg1.setText("이체가 완료 되었습니다.");
+
+			// number2길동이가 이체 계좌 적는
+			// num2 길순이 계좌 자리
+
+			String Transfer1_ = transfer1.getText();
+			int Transfer1 = Integer.parseInt(Transfer1_);
+
+			String Number2 = number2.getText();
+//			int Number2 = Integer.parseInt(Number2_);	
+
+			
+			System.out.println("길동이가 입력한 계좌 :" + Number2);
+			System.out.println("길순이 계좌 확인" + num2);
+			
+			// 길동이가 길순이 계좌를 제대로 입력했을때
+			
+			if (Number2.equals(num2)) {
+
+				System.out.println("길동이가 보내는 돈 :" + Transfer1);
+				// 이체금액transfer1이 잔액cash1보다 낮을경우 이체함 이체금액 <= 잔액, 0이상일때
+				if (Transfer1 <= Cash1 && Transfer1 > 0) {
+					System.out.println("이체금액 : " + Transfer1);
+					msg1.setText("이체가 완료 되었습니다.");
+				} // 0일때
+				else if (Transfer1 < 1) {
+					System.out.println("이체금액 : " + Transfer1);
+					msg1.setText("금액을 입력해주세요.");
+				} else {
+					System.out.println("이체금액 : " + Transfer1);
+					msg1.setText("잔액이 부족합니다.");
+				}
 			} else {
 				System.out.println("이체금액 : " + Transfer1);
-				msg1.setText("잔액이 부족합니다.");
+				msg1.setText("제대로 입력해주세요!");
 			}
-		} // 길동이 이체 끝
+			// 길동이 이체 끝
+		}
 
-		String Transfer2_ = transfer2.getText();
-		int Transfer2 = Integer.parseInt(Transfer2_);
-
-		// 길순이가 이체 버튼 눌렀을 때
+// 길순이가 이체 버튼 눌렀을 때
 		if (s.equals("이체2")) {
-			// 이체금액transfer1이 잔액cash1보다 낮을경우 이체함 이체금액 <= 잔액
-			if (Transfer2 <= Cash2) {
-				System.out.println("이체금액 : " + Transfer2);
-				msg2.setText("이체가 완료 되었습니다.");
+
+			String Transfer2_ = transfer2.getText();
+			int Transfer2 = Integer.parseInt(Transfer2_);
+
+			String Number4 = number4.getText();
+			//int Number4 = Integer.parseInt(Number4_);
+			
+			// System.out.println("길순이가 보내요 :" + Number4);
+			if (Number4.equals(num1)) {
+
+// 이체금액transfer2이 잔액cash2보다 낮을경우 이체함 이체금액 <= 잔액, 0이상일때
+				if (Transfer2 <= Cash2 && Transfer2 > 0) {
+					System.out.println("이체금액 : " + Transfer2);
+					msg2.setText("이체가 완료 되었습니다.");
+				} // 0일때
+				else if (Transfer2 < 1) {
+					System.out.println("이체금액 : " + Transfer2);
+					msg2.setText("금액을 입력해주세요.");
+				} else {
+					System.out.println("이체금액 : " + Transfer2);
+					msg2.setText("잔액이 부족합니다.");
+				}
 			} else {
-				System.out.println("이체금액 : " + Transfer2);
-				msg2.setText("잔액이 부족합니다.");
+				msg2.setText("제대로 입력해주세요!");
 			}
-		} // 길순이 이체 끝
+			// 길순이 이체 끝
+////////////// 이체 버튼 눌렀을때 끝 //////////////////////////////////
+		}
 
-		////////////// 이체 버튼 눌렀을때 끝 //////////////////////////////////
 	}
-
 }
 
 public class homework05 {
