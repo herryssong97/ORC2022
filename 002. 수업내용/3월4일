@@ -1,0 +1,219 @@
+2022-03-04
+
+
+동기 : 동시에 일어나는 일 / 설계가 간단하고 직관 / 결과가 주어질 때 까지 아무것도못하고 대기
+비동기 : 동시에 일어나지 않는 일 / 동기보다 복잡 / 결과가 주어지는 시간까지 다른작업을 할 수 있어 자원을 효율적으로 사용
+
+프로세스 : 자신만의 데이터를 가짐
+Thread t = new Thread(); // 스레드 객체 생성
+t.start(); // 스레드 시작
+=> 어떤 것이 빨리 끝날지 모른다
+
+스레드 : 동일한 데이터를 공유
+
+___________________________________________________________________
+
+
+MySQL
+https://extbrain.tistory.com/56
+
+
+WHERE는 그룹화 하기 전이고, HAVING은 그룹화 후에 조건입니다.
+
+
+
+
+#가격 8000원 이상인 도서를 구매한 고객에 대하여 고객별 주문 도서의
+#총 수량을 구하시오
+# 단 두권 이상 구매한 고객만 구한다
+SELECT orderid AS "아이디",COUNT(*)도서수량
+FROM orders
+WHERE saleprice >= 8000
+GROUP BY custid
+HAVING COUNT(*) >=2;
+
+
+
+#도서번호가 1인 도서의 이름
+SELECT bookid, bookname
+FROM book
+WHERE bookid = 1;
+
+#가격이 20,000원 이상인 도서의 이름
+SELECT bookname, price
+FROM book
+where price >= 20000;
+
+#박지성의 총 구매액 (박지성 고객번호 : 1)
+SELECT custid, SUM(saleprice)
+FROM orders
+WHERE custid=1;
+
+#박지성이 구매한  20,000원 이상의 도서의 수(박지성의 고객번호 : 1)
+SELECT custid, COUNT(*), saleprice
+FROM orders
+where saleprice>20000;
+
+
+___________________________________________________________________
+
+
+다 다르게 출력
+
+SELECT *
+FROM customer;
+>>>>>>>> 한장씩 출력
+
+SELECT *
+FROM orders;
+>>>>>>>> 한장씩 출력
+
+
+
+SELECT *
+FROM customer, orders;
+>>>>>>>> 한 화면에 중복되어서 몽땅 출력
+
+
+___________________________________________________________________
+
+
+
+ORDER BY 정렬
+
+
+SELECT publisher 출판사, sum(saleprice)판매금액
+FROM customer, orders, book
+WHERE customer.custid = orders.custid 
+		AND orders.bookid=book.bookid
+GROUP BY publisher;
+
+
+#고객의 이름과 고객이 주문한 도서의 판매가격을 출력하라
+SELECT NAME, saleprice
+FROM customer, orders
+WHERE customer.custid=orders.custid
+GROUP BY NAME;
+
+#고객별로 주문한 모든 도서의 총 판매액을 구하고,
+#고객이름 순으로 출력하시오
+SELECT NAME, sum(saleprice)
+FROM customer, orders
+WHERE customer.custid=orders.custid
+GROUP BY NAME
+ORDER BY name;
+
+___________________________________________________________________
+
+
+LEFT OUTER JOIN
+왼쪽 테이블의 것은 조건에 부합하지 않더라도 
+모두 결합되어야 한다는 의미
+즉, FROM 첫번째 테이블 LEFT OUTER JOIN 두번째 테이블
+이라면, 첫번째 테이블의 것은 모두 출력되어야 한다.
+ex >> name 테이블은 다 출력
+SELECT NAME, saleprice
+FROM customer LEFT OUTER JOIN orders
+		ON customer.custid = orders.custid;
+
+
+RIGHT OUTER JOIN
+오른쪽 테이블의 것은 조건에 부합하지 않더라도 
+모두 결합되어야 한다는 의미
+즉, FROM 첫번째 테이블 RIGHT OUTER JOIN 두번째 테이블
+이라면, 두번째 테이블의 것은 모두 출력되어야 한다.
+
+
+___________________________________________________________________
+
++++++ 서브쿼리 사용하기 +++++
+#가장 비싼 도서의 이름을 보여줘라
+
+SELECT bookname
+FROM book
+WHERE price =(
+	SELECT MAX(price)
+	FROM book);
+
+#가장 싼 도서의 이름을 보여줘라
+SELECT bookname, price
+FROM book
+WHERE price =(
+	SELECT Min(price)
+	FROM book);
+
+#평균가격 이상인 도서 명을 보여줘라
+SELECT bookname, price
+FROM book
+WHERE price >=(
+	SELECT AVG(price)
+	FROM book);
+
+
+#도서를 구매한 적이 있는
+#고객의 이름을 검색하시오
+SELECT NAME
+FROM customer
+WHERE custid IN(
+	SELECT custid
+	FROM orders);
+
+SELECT NAME
+FROM customer
+WHERE custid IN (1,2,3,4);
+
+#도서를 구매한 적이 없는
+#고객의 이름을 검색하시오
+
+SELECT NAME
+FROM customer
+WHERE custid not IN(
+	SELECT custid
+	FROM orders);
+
+
+
+#대한미디어에서 출판한 도서를 구매한
+#고객의 이름을 검색하시오
+
+SELECT NAME
+FROM customer
+WHERE custid IN(
+		SELECT custid
+		FROM orders
+		WHERE bookid IN(
+				SELECT bookid
+				FROM book
+				WHERE publisher = '대한미디어')
+);
+
+
++++++ except 사용하기 +++++
+except : 빼기
+
+#도서를 주문하지 않은 고객의 이름을 보이시오
+select name
+FROM customer
+except
+SELECT NAME
+FROM customer
+WHERE custid IN (
+	SELECT custid
+	FROM orders);
+
+
+#도서를 주문한 
+#고객의 이름과 주소를 보여라
+SELECT NAME, address
+FROM customer
+WHERE custid IN(
+	SELECT custid
+	FROM orders);
+
+SELECT NAME, address
+FROM customer
+WHERE exists (
+	SELECT *
+	FROM orders
+	WHERE orders.custid = customer.custid);
+
