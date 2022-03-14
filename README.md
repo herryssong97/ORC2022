@@ -8,4 +8,5 @@
 
 eclipes >> java<br>
 VSCodeUserSetup-x64-1.65.1 >> html/css/javascript<br>
+HeidiSQL >> mysql<br>
 apache-tomcat-9.0.59<br>
