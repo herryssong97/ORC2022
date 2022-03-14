@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>변수 선언</title>
+        <script src="lib.js" href="javascript"></script>
+    </head>
+    <body>
+        <h3>리터널</h3>
+        <hr>
+        <script>
+            let grade;
+            // grade 점수를 입력받아 학점을 출력
+            // 90이상 : "A", 80이상 : "B"
+            // ~60미만 : "F"
+            // if ~ elseif ~ else
+            let score = prompt("점수를 입력하세요");
+            // 키보드 입력된 값은 문자로 처리됨
+            // 정수로 변환하여 처리해야 한다.
+            // parseInt(score)
+            // 
+
+            score = parseInt(score);
+            if(score >= 90){
+                document.write("A");
+            }else if(score >= 80){
+                document.write("B");
+            }else if(score >= 60){
+                document.write("C");
+            }else{
+                document.write("F");
+            }
+
+
+
+        </script>
+    </body>
+</html>

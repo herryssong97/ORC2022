@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>변수 선언</title>
+       <script src="lib.js" href="javascript"></script>
+    </head>
+    <body>
+
+        <h3>변수 선언, 전역/지역/블록 변수</h3>
+        <hr>
+        <script>
+            var a =100;
+            let x; // 전역변수
+            function f(){
+                let y; // 함수 안에 쓰니까 지역변수
+                x = 10;
+                y =20;
+                z = 30; // 변수 선언없이 할당 가능
+                if(y==20){
+                    let b=40; // 블록변수 생성 및 할당
+                    b++;
+                    document.write("if 블록 내 블록변수 b="+b+"<br>");
+                }
+
+                // 이곳에서는 블록변수 사용 불가능
+                document.write("함수 f()내 지역변수" + y + "<br>");
+                // document.write("블록변수" + b + "<br>");
+            }
+
+            f(); // 함수 f 호출
+            document.write("전역변수 x =" + x + "<br>");
+            document.write("전역변수 z =" + z + "<br>");
+
+        </script>
+        
+    </body>
+</html>
