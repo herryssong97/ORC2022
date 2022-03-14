@@ -6,6 +6,6 @@
 
 <br><br><br><br>
 
-이클립스에서<br>
-sysout 치고 ctrl+spacebar 하면 자동완성<br>
-shift + ctrl + f 자동 줄바꿈
+eclipes >> java
+VSCodeUserSetup-x64-1.65.1 >> html/css/javascript
+apache-tomcat-9.0.59
