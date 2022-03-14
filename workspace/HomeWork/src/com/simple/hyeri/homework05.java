@@ -139,20 +139,21 @@ class BANK extends JFrame implements ActionListener {
 		String s = e.getActionCommand();
 
 ////////////// 조회 버튼 //////////////////////////////////
-		String cashA = "1000";
-		int Cash1 = Integer.parseInt(cashA);
+		
+		int cashA = 1000; // 홍길동
 
-		String cashB = "2000";
-		int Cash2 = Integer.parseInt(cashB);
+		int cashB = 2000; // 홍길순
+		//int Cash2 = Integer.parseInt(cashB);
 
 		if (s.equals("조회1")) {
-			cash1.setText(cashA);
+			cash1.setText(cashA+"");
 			if (number2 != null) {
 				msg1.setText("잔액이 조회되었습니다.");
 			} // 길동이
 		}
+		
 		if (s.equals("조회2")) {
-			cash2.setText(cashB);
+			cash2.setText(cashB+"");
 			if (number4 != null) {
 				msg2.setText("잔액이 조회되었습니다.");
 			} // 길순이
@@ -161,31 +162,34 @@ class BANK extends JFrame implements ActionListener {
 
 ////////////// 이체 버튼 //////////////////////////////////
 
-// 길동이가 이체 버튼 눌렀을 때
+		// 길동이가 이체 버튼 눌렀을 때
 		if (s.equals("이체1")) {
-
-			// number2길동이가 이체 계좌 적는
-			// num2 길순이 계좌 자리
 
 			String Transfer1_ = transfer1.getText();
 			int Transfer1 = Integer.parseInt(Transfer1_);
 
 			String Number2 = number2.getText();
-//			int Number2 = Integer.parseInt(Number2_);	
-
 			
 			System.out.println("길동이가 입력한 계좌 :" + Number2);
 			System.out.println("길순이 계좌 확인" + num2);
 			
 			// 길동이가 길순이 계좌를 제대로 입력했을때
-			
 			if (Number2.equals(num2)) {
 
+
+				String Cash1 = Integer.toString(cashA-Transfer1);
+				
+				
 				System.out.println("길동이가 보내는 돈 :" + Transfer1);
 				// 이체금액transfer1이 잔액cash1보다 낮을경우 이체함 이체금액 <= 잔액, 0이상일때
-				if (Transfer1 <= Cash1 && Transfer1 > 0) {
+				if (Transfer1 <= cashA && Transfer1 > 0) {
 					System.out.println("이체금액 : " + Transfer1);
-					msg1.setText("이체가 완료 되었습니다.");
+						
+					cash1.setText(Cash1);					
+					
+					
+					msg1.setText(Transfer1+"원 이체 완료 되었습니다.");
+					
 				} // 0일때
 				else if (Transfer1 < 1) {
 					System.out.println("이체금액 : " + Transfer1);
@@ -201,23 +205,31 @@ class BANK extends JFrame implements ActionListener {
 			// 길동이 이체 끝
 		}
 
-// 길순이가 이체 버튼 눌렀을 때
+		// 길순이가 이체 버튼 눌렀을 때
 		if (s.equals("이체2")) {
 
 			String Transfer2_ = transfer2.getText();
 			int Transfer2 = Integer.parseInt(Transfer2_);
 
 			String Number4 = number4.getText();
-			//int Number4 = Integer.parseInt(Number4_);
 			
 			// System.out.println("길순이가 보내요 :" + Number4);
+			// 길순이가 길동이 계좌를 제대로 입력했을때
 			if (Number4.equals(num1)) {
 
-// 이체금액transfer2이 잔액cash2보다 낮을경우 이체함 이체금액 <= 잔액, 0이상일때
-				if (Transfer2 <= Cash2 && Transfer2 > 0) {
-					System.out.println("이체금액 : " + Transfer2);
-					msg2.setText("이체가 완료 되었습니다.");
-				} // 0일때
+				String Cash2 = Integer.toString(cashB-Transfer2);
+				
+				System.out.println("길순이가 보내는 돈 :" + Transfer2);
+				// 이체금액transfer2이 잔액cash2보다 낮을경우 이체함 이체금액 <= 잔액, 0이상일때
+				if (Transfer2 <= cashB && Transfer2 > 0) {
+					System.out.println("이체금액 : " + Transfer2);					
+
+					cash2.setText(Cash2);					
+					
+					
+					msg2.setText(Transfer2+"원 이체 완료 되었습니다.");
+					
+				} // 0일때 
 				else if (Transfer2 < 1) {
 					System.out.println("이체금액 : " + Transfer2);
 					msg2.setText("금액을 입력해주세요.");
@@ -229,6 +241,7 @@ class BANK extends JFrame implements ActionListener {
 				msg2.setText("제대로 입력해주세요!");
 			}
 			// 길순이 이체 끝
+			
 ////////////// 이체 버튼 눌렀을때 끝 //////////////////////////////////
 		}
 
