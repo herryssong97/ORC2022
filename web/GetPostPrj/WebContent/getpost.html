@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>계산기</title>
+<style>
+
+#content{
+	width: 300px;
+	margin: 0 auto;
+	border: 10px solid #ccc;
+	padding: 10px;
+	text-align:center;
+	}
+
+</style>
+</head>
+<body>
+	<div id="content">
+		<h1>계산기</h1>
+		<form action="getPost" method="post">
+			<label>숫자 1 : </label> 
+			<input type="text" name="num1"></input><br><br> 
+			<label>숫자 2 : </label> 
+			<input type="text" name="num2"></input><br><br> 
+			<input type="submit" value="덧셈" name="operator"></input>
+			<input type="submit" value="뺄셈" name="operator"></input>
+			<input type="submit" value="곱셈" name="operator"></input>
+			<input type="submit" value="나눗셈" name="operator"></input>
+		</form>
+	</div>
+</body>
+</html>
