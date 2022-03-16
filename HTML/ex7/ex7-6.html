@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            let account = {
+
+                owner: "황기태",
+                code: "111",
+                balance: 35000,
+
+                // 메서드
+
+                inquery: function inquery() {
+                    return this.balance;
+                },
+
+                depoisit: function depoisit(money) {
+                    this.balance += money;
+                },
+
+                withdraw: function withdraw(money) {
+                    this.balance -= money;
+                    return money;
+                }
+
+            }
+        </script>
+
+    </head>
+
+    <body>
+
+        <script>
+
+            document.write("account :")
+            document.write(account.owner + ",");
+            document.write(account.code + ",");
+            document.write(account.balance + ",");
+            account.depoisit(10000);
+
+            document.write("입금 후 잔액:" + account.inquery() + "<br>");
+            account.withdraw(5000);
+            document.write("출금 후 잔액 :" + account.inquery() + "<br>");
+        </script>
+
+    </body>
+</html>

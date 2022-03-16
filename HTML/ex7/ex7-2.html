@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>배열 만들기</h3>
+    <script>
+        const plots=[20,5,8,15,22];
+        //document.write("배열값 참조"+plots[4]);
+
+        for(let i=0; i<plots.length; i++){
+            // 배열값에 해당하는 별표를 그리시오
+            let size = plots[i];
+            document.write(size + " : ")
+            while(size>0){
+                document.write("*");
+                size--;
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

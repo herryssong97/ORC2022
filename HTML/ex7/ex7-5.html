@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            function inquery() {
+                return this.balance;
+            }
+            function depoisit(money) {
+                this.balance += money;
+            }
+            function withdraw(money) {
+                this.balance -= money;
+                return money;
+            }
+
+            // 사용자 객체 만들기
+
+            let account = new Object();
+            console.log(account);
+            console.log(typeof(account));
+            account.owner = "송혜리";
+            account.code = "123";
+            account.balance = 35000;
+            account.inquery = inquery;
+            account.depoisit = depoisit;
+            account.withdraw = withdraw;
+            console.log(account);
+        </script>
+    </head>
+    <body>
+        <h3>객체 활용</h3>
+        <script>
+            document.write("account : ")
+            document.write(account.owner + ",");
+            document.write(account.code + ",");
+            document.write(account.balance + ",");
+
+            account.depoisit(10000);
+            document.write("입금 후 잔액 : " + account.inquery() + "<br>");
+
+            account.withdraw(5000);
+            document.write("출금 후 잔액 : " + account.inquery() + "<br>");
+        </script>
+
+    </body>
+</html>
